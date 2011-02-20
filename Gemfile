@@ -24,6 +24,7 @@ gem 'rails', '3.0.4'
 gem "haml"
 gem "haml-rails"
 gem "jquery-rails"
+gem 'oa-oauth'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
