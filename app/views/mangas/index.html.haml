@@ -1,0 +1,13 @@
+- title "Mangas"
+
+%table
+  %tr
+    %th Title
+    %th Author
+  - for manga in @mangas
+    %tr
+      %td= manga.title
+      %td= manga.author
+      %td= link_to 'Edit', edit_manga_path(manga)
+
+%p= link_to "New Manga", new_manga_path

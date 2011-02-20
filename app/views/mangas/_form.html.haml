@@ -1,0 +1,12 @@
+= form_for @manga do |f|
+  = f.error_messages
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+  %p
+    = f.label :author
+    %br
+    = f.text_field :author
+  %p
+    = f.submit

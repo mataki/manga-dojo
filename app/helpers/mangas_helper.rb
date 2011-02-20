@@ -1,0 +1,2 @@
+module MangasHelper
+end
