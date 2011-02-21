@@ -4,10 +4,12 @@
   %tr
     %th Title
     %th Author
+    %th Created by
   - for manga in @mangas
     %tr
       %td= manga.title
       %td= manga.author
+      %td= h manga.user.try(:name) || "Anonymous"
       %td= link_to 'Edit', edit_manga_path(manga)
 
 %p= link_to "New Manga", new_manga_path

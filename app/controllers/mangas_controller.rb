@@ -9,6 +9,7 @@ class MangasController < ApplicationController
 
   def create
     @manga = Manga.new(params[:manga])
+    @manga.user = current_user
     if @manga.save
       redirect_to mangas_url, :notice => "Successfully created manga."
     else
@@ -22,6 +23,7 @@ class MangasController < ApplicationController
 
   def update
     @manga = Manga.find(params[:id])
+    @manga.user = current_user
     if @manga.update_attributes(params[:manga])
       redirect_to mangas_url, :notice  => "Successfully updated manga."
     else
