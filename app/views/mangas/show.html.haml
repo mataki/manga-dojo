@@ -1,0 +1,9 @@
+- title @manga.title
+
+%p
+  Author:
+  = @manga.author
+
+%p
+  Created by:
+  = @manga.user.try(:name)

@@ -3,6 +3,10 @@ class MangasController < ApplicationController
     @mangas = Manga.all
   end
 
+  def show
+    @manga = Manga.find params[:id]
+  end
+
   def new
     @manga = Manga.new
   end
