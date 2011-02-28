@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
       user.provider = 'facebook'
     end
   end
+
+  def client
+    @client ||= RestGraph.new(:access_token => self.oauth_token)
+  end
 end

@@ -1,8 +1,15 @@
 development:
-  domain: localhost:3000
+  host: localhost
+  port: 3000
 
 test:
-  domain: test.host
+  host: example.com
+  port: 80
 
 production:
-  domain: example.com
+  host: manga-dojo.heroku.com
+  port: 80
+
+staging:
+  host: manga-dojo-staging.heroku.com
+  port: 80
