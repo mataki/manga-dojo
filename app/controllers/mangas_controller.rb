@@ -8,8 +8,10 @@ class MangasController < ApplicationController
   end
 
   def create
-    @manga = Manga.new(params[:manga])
-    @manga.user = current_user
+    @manga = Manga.new(params[:manga]) do |m|
+      m.user = current_user
+    end
+
     if @manga.save
       redirect_to mangas_url, :notice => "Successfully created manga."
     else
@@ -22,8 +24,10 @@ class MangasController < ApplicationController
   end
 
   def update
-    @manga = Manga.find(params[:id])
-    @manga.user = current_user
+    @manga = Manga.find(params[:id]) do |m|
+      m.user = current_user
+    end
+
     if @manga.update_attributes(params[:manga])
       redirect_to mangas_url, :notice  => "Successfully updated manga."
     else
