@@ -21,7 +21,18 @@ class User < ActiveRecord::Base
     end
   end
 
+  def post_feed(options = {})
+    logger.debug "[POST/feed] #{options.inspect}"
+    self.client.post("me/feed", options) unless mock?
+  end
+
   def client
     @client ||= RestGraph.new(:access_token => self.oauth_token)
+  end
+
+  @@exclude_mock_env = %(production staging)
+
+  def mock?
+    !(@@exclude_mock_env.include?(Rails.env) or ENV["FORCE_POST"])
   end
 end

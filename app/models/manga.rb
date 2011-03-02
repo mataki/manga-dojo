@@ -9,7 +9,7 @@ class Manga < ActiveRecord::Base
   after_create :post_link_to_facebook
 
   def post_link_to_facebook
-    user.client.post("me/feed", :link => permalink, :name => self.title, :message => "I created #{self.title} on Manga Dojo!")
+    user.post_feed(:link => permalink, :name => self.title, :message => "I created #{self.title} on Manga Dojo!")
   end
 
   def permalink
