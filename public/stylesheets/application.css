@@ -14,6 +14,23 @@ a {
   height: 0;
   overflow: hidden; }
 
+#header {
+  background: white;
+  position: relative;
+  height: 50px; }
+  #header #header-center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 5px 10px; }
+    #header #header-center img {
+      height: 40px; }
+  #header #header-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px 20px; }
+
 #container {
   width: 75%;
   margin: 0 auto;
@@ -21,6 +38,11 @@ a {
   padding: 20px 40px;
   border: solid 1px black;
   margin-top: 20px; }
+
+#footer {
+  color: #cccccc;
+  margin: 20px;
+  text-align: center; }
 
 #flash_notice,
 #flash_error,
