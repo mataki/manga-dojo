@@ -12,12 +12,6 @@ class MangasController < ApplicationController
   end
 
   def create
-    if asin = params[:manga].delete(:asin)
-      title, author = get_data_from_asin(asin)
-      params[:manga][:title] ||= title
-      params[:manga][:author] ||= author
-    end
-
     @manga = Manga.new(params[:manga]) do |m|
       m.user = current_user
     end

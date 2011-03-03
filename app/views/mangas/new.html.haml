@@ -6,16 +6,19 @@
 
 #amazon-items
   - @items.each do |item|
+    - image_url, title, author = item.get("smallimage/url"), item.get('itemattributes/title'), item.get("author")
     .amazon-item
       .image
-        = image_tag item.get("smallimage/url")
+        = image_tag image_url if image_url
       .title
-        = item.get('itemattributes/title')
+        = title
       .author
-        = item.get("author")
+        = author
       .post
         = form_tag mangas_path(:query => params[:query]) do
-          = hidden_field_tag "manga[asin]", item.get('asin')
+          = hidden_field_tag "manga[title]", title
+          = hidden_field_tag "manga[author]", author
+          = hidden_field_tag "manga[image_url]", image_url
           = submit_tag "Submit"
 
 %p= link_to "Back to List", mangas_path
