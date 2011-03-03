@@ -27,6 +27,7 @@ gem "jquery-rails"
 gem 'rest-graph', :git => 'git://github.com/cardinalblue/rest-graph.git'
 gem 'rest-client' # used rest-graph
 gem 'json' # used rest-graph
+gem "amazon-ecs"
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

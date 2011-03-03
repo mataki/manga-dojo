@@ -8,10 +8,16 @@ class MangasController < ApplicationController
   end
 
   def new
-    @manga = Manga.new
+    @items = search_from_amazon(params[:query])
   end
 
   def create
+    if asin = params[:manga].delete(:asin)
+      title, author = get_data_from_asin(asin)
+      params[:manga][:title] ||= title
+      params[:manga][:author] ||= author
+    end
+
     @manga = Manga.new(params[:manga]) do |m|
       m.user = current_user
     end
@@ -19,6 +25,7 @@ class MangasController < ApplicationController
     if @manga.save
       redirect_to mangas_url, :notice => "Successfully created manga."
     else
+      @items = search_from_amazon(params[:query])
       render :action => 'new'
     end
   end
@@ -36,6 +43,27 @@ class MangasController < ApplicationController
       redirect_to mangas_url, :notice  => "Successfully updated manga."
     else
       render :action => 'edit'
+    end
+  end
+
+private
+  # mock
+  def user_country
+    @user_lang ||= :jp # (rest_graph.lang[/^[a-z]{2}/]).to_sym
+  end
+
+  def search_from_amazon(query)
+    @res = query ? Amazon::Ecs.item_search(query, :country => user_country, :response_group => "Medium"): nil
+    items = @res.try(:items) || []
+    items
+  end
+
+  def get_data_from_asin(asin_code)
+    resp = Amazon::Ecs.item_lookup(asin_code, :country => user_country)
+    if resp and resp.is_valid_request? and !resp.has_error?
+      title = resp.first_item.get('itemattributes/title')
+      author = resp.first_item.get_elements('author').map(&:get).join(', ')
+      [title, author]
     end
   end
 end

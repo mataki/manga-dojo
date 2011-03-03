@@ -1,5 +1,21 @@
 - title "New Manga"
 
-= render 'form'
+= form_tag new_manga_path, :method => :get do
+  = text_field_tag :query, params[:query]
+  = submit_tag
+
+#amazon-items
+  - @items.each do |item|
+    .amazon-item
+      .image
+        = image_tag item.get("smallimage/url")
+      .title
+        = item.get('itemattributes/title')
+      .author
+        = item.get("author")
+      .post
+        = form_tag mangas_path(:query => params[:query]) do
+          = hidden_field_tag "manga[asin]", item.get('asin')
+          = submit_tag "Submit"
 
 %p= link_to "Back to List", mangas_path
