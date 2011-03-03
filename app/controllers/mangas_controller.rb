@@ -15,12 +15,14 @@ class MangasController < ApplicationController
     @manga = Manga.new(params[:manga]) do |m|
       m.user = current_user
     end
-
-    if @manga.save
+    begin
+      @manga.save!
       redirect_to mangas_url, :notice => "Successfully created manga."
-    else
-      @items = search_from_amazon(params[:query])
-      render :action => 'new'
+    rescue ActiveRecord::RecordInvalid => e
+      redirect_to :action => "new", :query => params[:query]
+    rescue Timeout::Error => e
+      logger.error "[Timeout::Error] #{e}"
+      redirect_to :action => "new", :query => params[:query]
     end
   end
 
