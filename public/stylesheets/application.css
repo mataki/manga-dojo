@@ -94,3 +94,47 @@ a {
 
 .clear_both {
   clear: both; }
+
+#mangas .manga {
+  margin: 20px 10px;
+  border-bottom: 2px solid silver; }
+  #mangas .manga .image {
+    float: left;
+    margin: 10px 15px;
+    width: 75px;
+    height: 75px;
+    text-align: center; }
+  #mangas .manga .title {
+    font-size: 16px;
+    font-weight: bold; }
+  #mangas .manga .author {
+    font-weight: italic;
+    margin: 10px; }
+  #mangas .manga .created_by {
+    color: #dddddd;
+    margin: 10px; }
+  #mangas .manga .actions {
+    font-size: 10px;
+    margin: 10px 10px 20px;
+    padding: 5px; }
+
+#amazon-items .amazon-item {
+  float: left;
+  position: relative;
+  width: 30%;
+  height: 130px;
+  margin: 10px 1%;
+  border: 1px solid silver; }
+  #amazon-items .amazon-item div {
+    margin: 10px; }
+  #amazon-items .amazon-item .image {
+    float: left;
+    width: 75px;
+    height: 75px;
+    text-align: center; }
+  #amazon-items .amazon-item .title {
+    font-weight: bold; }
+  #amazon-items .amazon-item .author {
+    color: #333333; }
+  #amazon-items .amazon-item .post {
+    margin: 10px; }

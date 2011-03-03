@@ -1,6 +1,6 @@
 class MangasController < ApplicationController
   def index
-    @mangas = Manga.all
+    @mangas = Manga.all(:order => "updated_at DESC")
   end
 
   def show

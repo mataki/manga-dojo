@@ -1,8 +1,10 @@
 - title "New Manga"
 
+%p
+  Search mangas to register
 = form_tag new_manga_path, :method => :get do
   = text_field_tag :query, params[:query]
-  = submit_tag
+  = submit_tag "Search"
 
 #amazon-items
   - @items.each do |item|
@@ -10,15 +12,17 @@
     .amazon-item
       .image
         = image_tag image_url if image_url
-      .title
-        = title
+      .title{:title => h(title)}
+        = truncate title
       .author
         = author
+      .clear
       .post
         = form_tag mangas_path(:query => params[:query]) do
           = hidden_field_tag "manga[title]", title
           = hidden_field_tag "manga[author]", author
           = hidden_field_tag "manga[image_url]", image_url
-          = submit_tag "Submit"
+          = submit_tag "Regist"
+  .clear
 
 %p= link_to "Back to List", mangas_path
