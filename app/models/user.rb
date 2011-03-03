@@ -21,6 +21,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  def update_oauth_token(access_token)
+    self.oauth_token = access_token
+    self.save(false)
+  end
+
   def post_feed(options = {})
     logger.debug "[POST/feed] #{options.inspect}"
     self.client.post("me/feed", options) unless mock?

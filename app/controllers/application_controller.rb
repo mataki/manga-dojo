@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
 
   def set_current_user
     @current_user = User.find_or_create_by_rest_graph!(rest_graph)
+    @current_user.update_oauth_token(rest_graph.access_token)
   end
 
   def current_user
