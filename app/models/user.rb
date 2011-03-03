@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
 
   def update_oauth_token(access_token)
     self.oauth_token = access_token
-    self.save(false)
+    self.save(:validate => false)
   end
 
   def post_feed(options = {})
