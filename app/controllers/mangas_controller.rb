@@ -50,7 +50,15 @@ private
   end
 
   def search_from_amazon(query)
-    @res = query ? Amazon::Ecs.item_search(query, :country => user_country, :response_group => "Medium"): nil
+    begin
+      status = Timeout::timeout(8) {
+        @res = query ? Amazon::Ecs.item_search(query, :country => user_country, :response_group => "Medium"): nil
+      }
+    rescue Timeout::Error => error
+      logger.info "[Timeout::Error]"
+      flash[:notice] = "Searching from amazon is timed out."
+      @res = nil
+    end
     items = @res.try(:items) || []
     items
   end
