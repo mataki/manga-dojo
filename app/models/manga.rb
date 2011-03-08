@@ -6,8 +6,6 @@ class Manga < ActiveRecord::Base
 
   validates_presence_of :user, :title, :author
 
-  after_create :post_link_to_facebook
-
   def post_link_to_facebook
     user.post_feed(:link => permalink, :name => self.title, :message => "I created #{self.title} on Manga Dojo!")
   end
