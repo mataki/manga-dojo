@@ -6,8 +6,8 @@
 
 以下の設定が、必要です。
 
-heroku config:add FACEBOOK_APP_ID=XXXXXXXX
-heroku config:add FACEBOOK_APP_SECRET=XXXXXXXX
+heroku config:add FACEBOOK_APP_ID=XXXXXXXX FACEBOOK_APP_SECRET=XXXXXXXX
+heroku config:add AMAZON_ACCESS_KEY=XXXXXX AMAZON_SECRET_KEY=XXXXXX
 
 == This app's article
 
