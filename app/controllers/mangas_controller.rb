@@ -20,7 +20,7 @@ class MangasController < ApplicationController
       @manga.post_link_to_facebook
       redirect_to mangas_url, :notice => "Successfully created manga."
     rescue ActiveRecord::RecordInvalid => e
-      redirect_to :action => "new", :query => params[:query]
+      redirect_to new_manga_path(:query => params[:query]), :notice => @manga.errors.full_messages
     rescue Timeout::Error => e
       logger.error "[Timeout::Error] #{e}"
       redirect_to mangas_url, :notice => "Successfully created manga."
