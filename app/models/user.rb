@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :name
 
-  validates_presence_of :provider, :uid, :name, :oauth_token
+  validates_presence_of :provider, :uid, :name
 
   def self.find_or_create_by_rest_graph!(rest_graph)
     data = rest_graph.data
