@@ -122,16 +122,16 @@ a {
   float: left;
   position: relative;
   width: 30%;
-  height: 130px;
+  height: 230px;
   margin: 10px 1%;
   border: 1px solid silver; }
   #amazon-items .amazon-item div {
     margin: 10px; }
   #amazon-items .amazon-item .image {
-    float: left;
     width: 75px;
     height: 75px;
-    text-align: center; }
+    text-align: center;
+    margin: 10px auto; }
   #amazon-items .amazon-item .title {
     font-weight: bold; }
   #amazon-items .amazon-item .author {
