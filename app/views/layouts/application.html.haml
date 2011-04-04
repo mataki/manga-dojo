@@ -15,7 +15,10 @@
       #header-center
         = link_to image_tag("logo.png"), "/"
       #header-right
-        Wellcome #{current_user.name}!
+        - if current_user
+          Wellcome #{current_user.name}!
+        - else
+          Please login
 
     #container
       - flash.each do |name, msg|
