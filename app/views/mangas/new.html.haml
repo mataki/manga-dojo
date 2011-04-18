@@ -21,7 +21,7 @@
         = form_tag mangas_path(:query => params[:query]) do
           = hidden_field_tag "manga[title]", title
           = hidden_field_tag "manga[author]", author
-          = hidden_field_tag "manga[image_url]", image_url
+          = hidden_field_tag "manga[amazon_image_url]", image_url
           = submit_tag "Regist"
   .clear
 

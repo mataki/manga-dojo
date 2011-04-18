@@ -1,5 +1,7 @@
-.bundle
+bundle
 db/*.sqlite3
 log/*.log
 tmp/
 /.rvmrc
+/config/database.yml
+/.powenv

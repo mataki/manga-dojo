@@ -2,7 +2,7 @@ require "lib/url_gen"
 
 class Manga < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :title, :author, :image_url
+  attr_accessible :title, :author, :amazon_image_url
 
   validates_presence_of :user, :title, :author
 
