@@ -45,6 +45,17 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    excon (0.6.2)
+    fog (0.7.2)
+      builder
+      excon (>= 0.6.1)
+      formatador (>= 0.1.3)
+      json
+      mime-types
+      net-ssh (>= 2.1.3)
+      nokogiri (>= 1.4.4)
+      ruby-hmac
+    formatador (0.1.3)
     haml (3.0.25)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -66,7 +77,9 @@ GEM
     mime-types (1.16)
     mocha (0.9.10)
       rake
+    net-ssh (2.1.4)
     nifty-generators (0.4.5)
+    nokogiri (1.4.4)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -124,6 +137,7 @@ PLATFORMS
 DEPENDENCIES
   amazon-ecs
   carrierwave
+  fog
   haml
   haml-rails
   jquery-rails
