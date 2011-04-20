@@ -5,3 +5,4 @@ tmp/
 /.rvmrc
 /config/database.yml
 /.powenv
+/public/uploads/

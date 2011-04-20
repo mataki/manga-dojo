@@ -32,9 +32,7 @@ class MangasController < ApplicationController
   end
 
   def update
-    @manga = Manga.find(params[:id]) do |m|
-      m.user = current_user
-    end
+    @manga = Manga.find(params[:id])
 
     if @manga.update_attributes(params[:manga])
       redirect_to mangas_url, :notice  => "Successfully updated manga."

@@ -138,3 +138,9 @@ a {
     color: #333333; }
   #amazon-items .amazon-item .post {
     margin: 10px; }
+
+h2#manga-title img {
+  vertical-align: top; }
+
+img.user-uploaded {
+  vertical-align: top; }

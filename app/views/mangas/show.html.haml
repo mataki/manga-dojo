@@ -1,5 +1,9 @@
-- title @manga.title
+- title @manga.title, false
 - open_graph_meta :title => @manga.title, :type => "book", :url => request.url, :site_name => "manga-dojo", :image => @manga.amazon_image_url, 'fb:app_id' => RestGraph.default_app_id
+
+%h2#manga-title
+  = image_tag @manga.amazon_image_url
+  @manga.title
 
 %p
   Author:
@@ -8,6 +12,10 @@
 %p
   Created by:
   = @manga.user.try(:name)
+
+%p
+  User uploaded image:
+  = image_tag @manga.image_url.to_s, :width => "200px", :class => "user-uploaded" if @manga.image_url
 
 %p
   = like_button_for_this_page
