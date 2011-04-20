@@ -29,6 +29,7 @@ gem 'rest-client' # used rest-graph
 gem 'json' # used rest-graph
 gem "amazon-ecs"
 gem "carrierwave"
+gem "fog"
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
