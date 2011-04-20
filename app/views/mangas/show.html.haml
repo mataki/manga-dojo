@@ -20,4 +20,7 @@
 %p
   = like_button_for_this_page
 
-%p= link_to "Back to List", mangas_path
+%p
+  = link_to "Edit", edit_manga_path(@manga)
+  |
+  = link_to "Back to List", mangas_path
