@@ -42,6 +42,10 @@ GEM
     carrierwave (0.5.3)
       activesupport (~> 3.0)
     columnize (0.3.2)
+    daemons (1.1.3)
+    delayed_job (2.1.4)
+      activesupport (~> 3.0)
+      daemons
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -137,6 +141,7 @@ PLATFORMS
 DEPENDENCIES
   amazon-ecs
   carrierwave
+  delayed_job
   fog
   haml
   haml-rails

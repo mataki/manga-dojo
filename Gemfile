@@ -30,6 +30,7 @@ gem 'json' # used rest-graph
 gem "amazon-ecs"
 gem "carrierwave"
 gem "fog"
+gem "delayed_job"
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
